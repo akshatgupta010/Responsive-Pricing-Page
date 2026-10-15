@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tide — Liquid Pricing</title>
+  <link rel="stylesheet" href="base.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Deep water glow & light rays (from base.css) -->
+  <div class="deep" aria-hidden="true"></div>
+  <div class="caustic" aria-hidden="true"></div>
+
+  <!-- 10 Rising background bubbles (matches .bubbles span:nth-child(1..10) in base.css) -->
+  <div class="bubbles" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <!-- Hidden SVG Goo filter for the liquid toggle -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <filter id="goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+        <feColorMatrix
+          in="blur"
+          mode="matrix"
+          values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -8"
+          result="goo"
+        />
+        <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+      </filter>
+    </defs>
+  </svg>
+
+  <main class="wrap">
+    <header class="top">
+      <!-- 6 Title halo bubbles (matches .halo span:nth-child(1..6) in base.css) -->
+      <div class="halo" aria-hidden="true">
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+      </div>
+
+      <span class="eyebrow">Tide Pricing</span>
+      <h1>Plans That Scale Like Water</h1>
+      <p class="sub">Fluid infrastructure that adapts to your traffic. Switch or cancel anytime with zero friction.</p>
+
+      <!-- Liquid Monthly / Yearly Toggle -->
+      <div class="billing">
+        <span class="label active" data-plan="monthly">Monthly</span>
+        <button class="switch" id="billingSwitch" aria-label="Toggle yearly billing" aria-pressed="false">
+          <span class="switch-goo">
+            <span class="node left"></span>
+            <span class="node right"></span>
+            <span class="blob"></span>
+          </span>
+        </button>
+        <span class="label" data-plan="yearly">
+          Yearly <span class="save">-20%</span>
+        </span>
+      </div>
+    </header>
+
+    <!-- 3 Glass Pricing Cards -->
+    <section class="grid">
+
+      <!-- Card 1: Ripple -->
+      <article class="card" style="--level: 28%;">
+        <div class="water"></div>
+        <div class="card-body">
+          <h2 class="tier">Ripple</h2>
+          <p class="blurb">For personal sites, prototypes, and early experiments.</p>
+
+          <div class="price-box">
+            <!-- 5 Fizz bubbles (matches .fizz span:nth-child(1..5) in base.css) -->
+            <div class="fizz" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <span class="cur">$</span>
+            <span class="num" data-monthly="19" data-yearly="15">19</span>
+            <span class="per">/mo</span>
+          </div>
+
+          <ul class="features">
+            <li>3 active deployments</li>
+            <li>50 GB edge bandwidth</li>
+            <li>Automatic SSL certificates</li>
+            <li>Community support</li>
+          </ul>
+
+          <button class="btn"><span>Start Rippling</span></button>
+        </div>
+      </article>
+
+      <!-- Card 2: Current (Popular) -->
+      <article class="card popular" style="--level: 52%;">
+        <div class="water"></div>
+        <div class="card-body">
+          <span class="tag">Popular</span>
+          <h2 class="tier">Current</h2>
+          <p class="blurb">Built for growing production apps and fast-moving teams.</p>
+
+          <div class="price-box">
+            <div class="fizz" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <span class="cur">$</span>
+            <span class="num" data-monthly="49" data-yearly="39">49</span>
+            <span class="per">/mo</span>
+          </div>
+
+          <ul class="features">
+            <li>Unlimited deployments</li>
+            <li>1 TB edge bandwidth</li>
+            <li>Global DDoS protection</li>
+            <li>24/7 priority support</li>
+          </ul>
+
+          <button class="btn"><span>Ride the Current</span></button>
+        </div>
+      </article>
+
+      <!-- Card 3: Abyss -->
+      <article class="card" style="--level: 78%;">
+        <div class="water"></div>
+        <div class="card-body">
+          <h2 class="tier">Abyss</h2>
+          <p class="blurb">Custom global clusters with dedicated throughput and SLAs.</p>
+
+          <div class="price-box">
+            <div class="fizz" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <span class="cur">$</span>
+            <span class="num" data-monthly="129" data-yearly="99">129</span>
+            <span class="per">/mo</span>
+          </div>
+
+          <ul class="features">
+            <li>Unlimited edge bandwidth</li>
+            <li>Dedicated isolated nodes</li>
+            <li>99.99% uptime SLA</li>
+            <li>Dedicated solutions architect</li>
+          </ul>
+
+          <button class="btn"><span>Go Deep</span></button>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
