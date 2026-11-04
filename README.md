@@ -18,20 +18,6 @@ A modern SaaS pricing landing page inspired by a design reference and built foll
 - `base.css` — global theme, gradients, background effects, and base styling
 - `script.js` — toggle behavior and card hover interactions
 
-## Run the Project
-
-Open `index.html` directly in a browser, or use a local static server:
-
-```bash
-python -m http.server 8000
-```
-
-Then open:
-
-```text
-http://localhost:8000
-```
-
 ## Stack
 
 - HTML
